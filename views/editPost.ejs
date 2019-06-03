@@ -1,0 +1,21 @@
+<% include particals/header %>
+<div class="ui text container context">
+	<div class="ui huge header"> Edit Post: <%= post.title %> </div>
+
+	<form class="ui form" method="POST" action="/post/<%= post._id %>/edit">
+		<div class="field">
+			<label>Title</label>
+			<input type="text" name="title" value="<%= post.title %>">
+		</div>
+		<div class="field">
+			<label>Images</label>
+			<input type="text" name="image" value="<%= post.image %>">
+		</div>
+		<div class="field">
+			<label>Content</label>
+			<textarea name="content" cols="30" rows="10"><%= post.content %></textarea>
+		</div>
+		<button class="ui green button" type="submit">Update Post</button>
+	</form>
+</div>
+<% include particals/footer %>

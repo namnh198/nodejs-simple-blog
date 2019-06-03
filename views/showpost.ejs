@@ -1,0 +1,45 @@
+<% include particals/header %>
+
+<div class="ui text container context">
+	<div class="ui huge header left floated"><%= post.title %></div>
+
+	<div class="ui centered rounded top attached showpost">
+		<div class="item">
+			<img class="ui fluid image" src="<%= post.image %>" alt="">
+			<div class="content">
+				<div class="meta">
+					<small class="left floated">
+						<strong><%= post.createdAt.toDateString() %>by 
+							<a class="author"><%= post.author.username %></a>
+						</strong>
+					</small>
+					<% if(currentUser && post.author.id.equals(currentUser._id)) { %>
+						<div class="right floated ui mini buttons">
+							<form action="/post/<%= post._id %>/delete" method="POST">
+								<button type="submit" class="ui button" onclick="return confirm('Are you sure?');">Delete</button>
+							</form>
+  							
+  							<div class="or"></div>
+  							<a href="/post/<%= post._id %>/edit" class="ui positive button">Edit</a>
+						</div>
+					<% } %>
+				</div>
+				<div class="description">
+					<p><%= post.content %></p>
+				</div>			
+			</div>
+		</div>
+		<div class="ui comments">
+			<div id="fb-root"></div>
+			<div class="fb-like" 
+		        data-href="http://localhost:5000/post/<%= post._id %>" 
+		        data-layout="standard" 
+		        data-action="like" 
+		        data-size="large"></div>
+	    	<div class="fb-comments" data-href="http://localhost:5000/post/<%= post._id %>" data-width="" data-numposts="5"></div>
+		</div>
+		
+	</div>
+</div>
+
+<% include particals/footer %>

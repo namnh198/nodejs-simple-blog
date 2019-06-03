@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Blog</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+	<div class="ui inverted menu">
+		<div class="ui container">
+			<div class="left menu">
+				<a href="/" class="header item">
+					<i class="idea icon"></i>NodeJS Simple Blog
+				</a>
+				<% if(currentUser) { %>
+				<a href="/post/new" class="item">Create Post</a>
+				<% } %>
+
+			</div>
+			<div class="right menu">
+				<% if(!currentUser) { %>
+				<a href="/login" class="item">Login</a>
+				<a href="/register" class="item">Register</a>
+				<% } else { %>
+				<span class="item">Hello, <%= currentUser.username %></span>
+				<a href="/logout" class="item">Logout</a>
+				<% } %>
+			</div>
+		</div>
+	</div>
+	
+	<% if(error && error.length > 0) { %>
+	<div class="ui error message text container">
+		<div class="header">
+			<%= error %>
+		</div>
+	</div>
+	<% } %>
+
+	<% if(success && success.length > 0) { %>
+	<div class="ui success message text container">
+		<div class="header">
+			<%= success %>
+		</div>
+	</div>
+	<% } %>
+<body>
+	

@@ -1,0 +1,24 @@
+.ui.menu {
+	border-radius: 0;
+}
+
+.context {
+	margin-top: 60px;
+}
+
+.showpost {
+	padding-bottom: 20px;
+}
+
+.description {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.fluid.image {
+	margin-bottom: 10px;
+}
+
+.ui.comments .reply.form textarea {
+	height: 6em;
+}
